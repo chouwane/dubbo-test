@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-    @Reference
+    @Reference(loadbalance="consistenthash")
     private HelloService helloService;
 
     @RequestMapping("/hello")
-    public String hello() {
-        String hello = helloService.sayHello("world");
-        System.out.println(helloService.sayHello("SnailClimb"));
+    public String hello(String s) {
+        String hello = helloService.sayHello(s);
         return hello;
     }
 }
