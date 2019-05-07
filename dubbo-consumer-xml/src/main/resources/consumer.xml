@@ -1,0 +1,17 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+    xmlns="http://www.springframework.org/schema/beans"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="xml-consumer"/>
+    <dubbo:registry address="zookeeper://192.168.99.100:2181"/>
+    <dubbo:reference id="helloService"
+        check="false"
+        interface="pers.wh.test.dubbo.HelloService"
+        version="1.0.0"
+        loadbalance="consistenthash"
+        timeout="10000"
+    />
+
+</beans>
