@@ -21,7 +21,7 @@
     <dubbo:provider
         delay="-1"
         accepts="1000"
-        tag="Ni1901"
+        tag="Ni1902,Ni1901"
     />
 
     <!--
