@@ -17,4 +17,11 @@
     <bean id="helloService" class="pers.wh.test.dubbo.HelloServiceImpl"/>
     <dubbo:service interface="pers.wh.test.dubbo.HelloService" ref="helloService" version="1.0.0"/>
 
+
+    <bean id="callbackService" class="pers.wh.test.dubbo.CallbackServiceImpl" />
+    <dubbo:service interface="pers.wh.test.dubbo.CallbackService" ref="callbackService" connections="1" callbacks="1000">
+        <dubbo:method name="addListener">
+            <dubbo:argument index="1" callback="true" />
+        </dubbo:method>
+    </dubbo:service>
 </beans>

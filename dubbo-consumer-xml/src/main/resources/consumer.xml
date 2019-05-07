@@ -14,4 +14,6 @@
         timeout="10000"
     />
 
+    <dubbo:reference id="callbackService" interface="pers.wh.test.dubbo.CallbackService" />
+
 </beans>
