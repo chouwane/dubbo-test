@@ -11,7 +11,7 @@
     </dubbo:application>
 
     <dubbo:registry address="zookeeper://192.168.99.100:2181"/>
-    <dubbo:protocol name="dubbo" port="-1"/>
+    <dubbo:protocol name="dubbo" host="192.168.1.235" port="-1" server="netty4"/>
 
     <!--
         delay="-1" : 延迟到 Spring 初始化完成后，再暴露服务

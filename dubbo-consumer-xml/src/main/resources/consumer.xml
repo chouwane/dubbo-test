@@ -6,24 +6,25 @@
 
     <dubbo:application name="xml-consumer"/>
     <dubbo:registry address="zookeeper://192.168.99.100:2181"/>
-    <dubbo:consumer check="false" />
 
-    <!--
-        sticky="true" : 尽可能让客户端总是向同一提供者发起调用，除非该提供者挂了，再连另一台
-    -->
-    <dubbo:reference id="helloService"
-        check="false"
-        interface="pers.wh.test.dubbo.HelloService"
-        version="1.0.0"
-        loadbalance="consistenthash"
-        timeout="10000"
-        mock="pers.wh.test.dubbo.mock.HelloServiceMock"
-        sticky="true"
-    />
 
-    <dubbo:reference id="callbackService"
-        interface="pers.wh.test.dubbo.CallbackService"
-        check="false"
-        mock="pers.wh.test.dubbo.mock.CallbackServiceMock"/>
+    <dubbo:consumer check="false" client="netty">
+        <!--
+            sticky="true" : 尽可能让客户端总是向同一提供者发起调用，除非该提供者挂了，再连另一台
+        -->
+        <dubbo:reference id="helloService"
+            check="false"
+            interface="pers.wh.test.dubbo.HelloService"
+            version="1.0.0"
+            loadbalance="consistenthash"
+            timeout="10000"
+            mock="pers.wh.test.dubbo.mock.HelloServiceMock"
+            sticky="true"
+        />
 
+        <dubbo:reference id="callbackService"
+            interface="pers.wh.test.dubbo.CallbackService"
+            check="false"
+            mock="pers.wh.test.dubbo.mock.CallbackServiceMock"/>
+    </dubbo:consumer>
 </beans>
