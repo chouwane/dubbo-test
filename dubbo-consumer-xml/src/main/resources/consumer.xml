@@ -6,14 +6,19 @@
 
     <dubbo:application name="xml-consumer"/>
     <dubbo:registry address="zookeeper://192.168.99.100:2181"/>
+    <dubbo:consumer check="false" />
     <dubbo:reference id="helloService"
         check="false"
         interface="pers.wh.test.dubbo.HelloService"
         version="1.0.0"
         loadbalance="consistenthash"
         timeout="10000"
+        mock="pers.wh.test.dubbo.mock.HelloServiceMock"
     />
 
-    <dubbo:reference id="callbackService" interface="pers.wh.test.dubbo.CallbackService" />
+    <dubbo:reference id="callbackService"
+        interface="pers.wh.test.dubbo.CallbackService"
+        check="false"
+        mock="pers.wh.test.dubbo.mock.CallbackServiceMock"/>
 
 </beans>
