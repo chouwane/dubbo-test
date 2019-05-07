@@ -13,11 +13,24 @@
     <dubbo:registry address="zookeeper://192.168.99.100:2181"/>
     <dubbo:protocol name="dubbo" port="20895"/>
 
-    <!-- 延迟到 Spring 初始化完成后，再暴露服务 -->
-    <dubbo:provider delay="-1" />
+    <!--
+        delay="-1" : 延迟到 Spring 初始化完成后，再暴露服务
+        delay="5000" : 延迟5秒，再暴露服务
+        accepts="1000" ： 限制服务器端接受的连接不能超过 1000 个
+     -->
+    <dubbo:provider delay="-1" accepts="1000"/>
 
+    <!--
+      executes="10" ： 服务器端并发执行（或占用线程池线程数）不能超过 10 个
+      actives="10" ：每客户端并发执行（或占用连接的请求数）不能超过 10 个：
+    -->
     <bean id="helloService" class="pers.wh.test.dubbo.HelloServiceImpl"/>
-    <dubbo:service interface="pers.wh.test.dubbo.HelloService" ref="helloService" version="1.0.0"/>
+    <dubbo:service
+        interface="pers.wh.test.dubbo.HelloService"
+        ref="helloService"
+        version="1.0.0"
+        executes="10"
+    />
 
 
     <bean id="callbackService" class="pers.wh.test.dubbo.CallbackServiceImpl" />
