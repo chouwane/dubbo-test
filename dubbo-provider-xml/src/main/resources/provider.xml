@@ -13,6 +13,8 @@
     <dubbo:registry address="zookeeper://192.168.99.100:2181"/>
     <dubbo:protocol name="dubbo" port="20895"/>
 
+    <!-- 延迟到 Spring 初始化完成后，再暴露服务 -->
+    <dubbo:provider delay="-1" />
 
     <bean id="helloService" class="pers.wh.test.dubbo.HelloServiceImpl"/>
     <dubbo:service interface="pers.wh.test.dubbo.HelloService" ref="helloService" version="1.0.0"/>
