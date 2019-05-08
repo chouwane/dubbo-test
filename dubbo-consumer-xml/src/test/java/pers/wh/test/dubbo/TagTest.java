@@ -15,7 +15,7 @@ public class TagTest {
         context.start();
 
         //设置使用的哪个标签服务
-        RpcContext.getContext().setAttachment(Constants.TAG_KEY, "Ni1902");
+        RpcContext.getContext().setAttachment(Constants.TAG_KEY, "Ni1901");
 
         HelloService helloService = (HelloService) context.getBean("helloService");
         String s = helloService.sayHello("1");

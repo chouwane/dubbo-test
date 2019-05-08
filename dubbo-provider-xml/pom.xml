@@ -73,6 +73,15 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory><!---设置编译的包-->
+                <includes>
+                  <include>**/*.xml</include><!---该路径下的.xml类型文件也要编译-->
+                  <include>**/*.properties</include><!---该路径下的.properties类型文件也要编译-->
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>

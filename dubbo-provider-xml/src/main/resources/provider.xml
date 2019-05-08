@@ -10,7 +10,11 @@
         <dubbo:parameter key="qos.port" value="33333"/>
     </dubbo:application>
 
-    <dubbo:registry address="zookeeper://192.168.99.100:2181"/>
+    <dubbo:registry
+        address="zookeeper://192.168.99.100:2181"
+        simplified="true"
+        extra-keys="retries,owner,dubbo.tag"
+    />
     <dubbo:protocol name="dubbo" host="192.168.1.235" port="-1" server="netty4" serialization="kryo"/>
 
     <!--
@@ -21,7 +25,7 @@
     <dubbo:provider
         delay="-1"
         accepts="1000"
-        tag="Ni1902,Ni1901"
+        tag="Ni1903"
     />
 
     <!--
@@ -34,6 +38,7 @@
         ref="helloService"
         version="1.0.0"
         executes="10"
+        tag="Ni1903"
     />
 
 
