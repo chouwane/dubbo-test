@@ -28,6 +28,8 @@
     <modules>
         <!--<module>dubbo-provider</module>
         <module>dubbo-consumer</module>-->
+        <module>dubbo-provider-group</module>
+        <module>dubbo-consumer-group</module>
     </modules>
 
     <dependencies>
