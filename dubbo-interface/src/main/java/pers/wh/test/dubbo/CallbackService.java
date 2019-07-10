@@ -9,4 +9,5 @@ public interface CallbackService {
 
     void addListener(String key, CallbackListener listener);
 
+    void addListener(String sid,String contractId,  CallbackListener listener);
 }

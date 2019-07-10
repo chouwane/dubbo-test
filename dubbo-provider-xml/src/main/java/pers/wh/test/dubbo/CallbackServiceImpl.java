@@ -21,6 +21,7 @@ public class CallbackServiceImpl implements CallbackService {
             public void run() {
                 while(true) {
                     try {
+                        System.out.println("listeners: "+listeners.size());
                         for(Map.Entry<String, CallbackListener> entry : listeners.entrySet()){
                             try {
                                 entry.getValue().changed(getChanged(entry.getKey()));
@@ -47,6 +48,11 @@ public class CallbackServiceImpl implements CallbackService {
 
         // 发送变更通知
         listener.changed(getChanged(key));
+    }
+
+    @Override
+    public void addListener(String sid, String contractId, CallbackListener listener) {
+
     }
 
 

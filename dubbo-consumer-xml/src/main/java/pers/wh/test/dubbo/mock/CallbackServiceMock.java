@@ -12,4 +12,9 @@ public class CallbackServiceMock implements CallbackService {
     public void addListener(String key, CallbackListener listener) {
         System.out.println("------------------------>"+ key);
     }
+
+    @Override
+    public void addListener(String sid, String contractId, CallbackListener listener) {
+
+    }
 }
