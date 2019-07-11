@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * @author wanghui
@@ -28,10 +27,12 @@ public class GroupConsumerApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        List<Long> list = groupService.getMinFillId("Ni1901");
+        /*List<Long> list = groupService.getMinFillId("Ni1901");
         if(list != null){
             System.out.println("Size = "+list.size());
             list.forEach(System.out::println);
-        }
+        }*/
+
+        System.out.println(groupService.getClearingFillId("Ni1901"));
     }
 }

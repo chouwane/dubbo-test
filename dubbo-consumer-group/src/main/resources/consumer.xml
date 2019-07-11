@@ -8,14 +8,22 @@
         <dubbo:parameter key="qos.enable" value="false"/>
     </dubbo:application>
 
-    <dubbo:registry address="multicast://224.5.6.7:1234"/>
+    <dubbo:registry address="zookeeper://192.168.99.100:2181"/>
+
+    <bean id="myMerger" class="pers.wh.test.dubbo.MyMerge"/>
 
     <dubbo:consumer>
-
-        <dubbo:reference id="groupService"
+        <!--<dubbo:reference id="groupService"
             interface="pers.wh.test.dubbo.GroupService"
             group="*" merger="true"
-        />
+        />-->
+        <dubbo:reference id="groupService"
+            interface="pers.wh.test.dubbo.GroupService"
+            group="*"
+        >
+            <dubbo:method name="getMinFillId" merger="true"/>
+            <dubbo:method name="getClearingFillId" merger="myMerger"/>
+        </dubbo:reference>
 
     </dubbo:consumer>
 </beans>

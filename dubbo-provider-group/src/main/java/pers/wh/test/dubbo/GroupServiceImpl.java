@@ -18,6 +18,11 @@ public class GroupServiceImpl implements GroupService {
         return list;
     }
 
+    @Override
+    public Long getClearingFillId(String contractId) {
+        return getRandomLong(1, 100);
+    }
+
     public long getRandomLong(long min, long max) {
         long rangeLong = min + (((long) (new Random().nextDouble() * (max - min))));
         System.out.println("随机Long值"+rangeLong);
