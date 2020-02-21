@@ -1,0 +1,2 @@
+cctsException=pers.wh.test.dubbo.springboot.consumer.filter.CctsExceptionFilter
+cuException=pers.wh.test.dubbo.springboot.consumer.filter.CustomerFilter
